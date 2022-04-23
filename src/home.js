@@ -1,45 +1,42 @@
 "use strict";
 
-function header() {
-  const header = document.createElement('header');
-  const mainHeading = document.createElement('h1');
-  const nav = document.createElement('nav');
-  const uList = document.createElement('ul');
-  const tabs = ['Home', 'Menu', 'About'];
+function home() {
+  const content = document.createElement('main');
+  content.append(ledeDiv(), timingsDiv());
 
-  mainHeading.textContent = "Peco's Restaurant";
-
-  for (let i = 0; i < 3; i++) {
-    const listItem = document.createElement('li');
-    const link = document.createElement('a');
-    link.textContent = tabs[i];
-    link.setAttribute('href', '#');
-
-    listItem.appendChild(link);
-    uList.appendChild(listItem);
-  }
-
-  nav.appendChild(uList);
-
-  header.appendChild(mainHeading);
-  header.appendChild(nav);
-
-  return header;
+  return content;
 }
 
-function main() {
+
+
+function ledeDiv() {
   const section = document.createElement('section');
   const para = document.createElement('p');
 
-  para.innerHTML = "<p> Come for the best Pizza!<br>Stay for the best Pizza! <br>Eat the best Pizza!<br>Dream about Pizza!</p>";
+  section.id = 'lede';
+  section.classList.add('lede');
+  para.classList.add('lede__text');
+
+  para.innerHTML = "Come for the best Pizza!<br>Stay for the best Pizza! <br>Eat the best Pizza!<br>Dream about Pizza!";
 
   section.appendChild(para);
-
-  section.style.display = 'none';
   return section;
 }
 
-export {
-  header,
-  main,
-};
+function timingsDiv() {
+  const section = document.createElement('section');
+  const heading = document.createElement('h2');
+  const para = document.createElement('p');
+
+  section.id = 'timings';
+  section.classList.add('timings');
+  heading.classList.add('sub-heading');
+
+  heading.textContent = 'Hours';
+  para.innerHTML = "Sunday: 1 PM - 11 PM<br>Monday: 1 PM - 11 PM<br>Tuesday: 1 PM - 11 PM<br>Wednesday: 1 PM - 11 PM<br>Thursday: 1 PM - 11 PM<br>Friday: 1 PM - 11 PM<br>Saturday: 1 PM - 11 PM";
+
+  section.append(heading, para);
+  return section;
+}
+
+export { home };

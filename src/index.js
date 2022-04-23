@@ -1,21 +1,53 @@
-import { header, main } from './home.js';
+import { header } from './header.js';
+import { home } from './home.js';
+import { aboutPage } from './about.js';
+import { menuPage } from './menu.js';
+import './style.css';
 
-console.log('I am ready to run');
+console.log('Running');
 
-const container = document.querySelector('#content');
-const mainElement = document.createElement('main');
+const body = document.body;
 
-container.appendChild(header());
-container.appendChild(mainElement);
-mainElement.appendChild(main());
+// HEADER element is present on every page
+body.appendChild(header());
 
+// Default view is the home page
+body.appendChild(home());
+
+// NAV menu eventListener;
 const linkList = document.querySelectorAll('li');
+linkList.forEach(tab => {
+  tab.addEventListener('click', changeTabContent);
+});
 
-const homeBtn = linkList[0];
-const menuBtn = linkList[1];
-const aboutBtn = linkList[2];
 
-// homeBtn.addEventListener('click', () => );
 
-// mainElement.appendChild(main());
+function changeTabContent(e) {
+  clearMainContent();
+
+  const clickedTab = e.target.textContent;
+
+  switch (clickedTab) {
+    case 'Menu':
+      body.append(menuPage());
+      break;
+    case 'About':
+      body.append(aboutPage());
+      break;
+    default:
+      body.append(home());
+  }
+}
+
+function clearMainContent() {
+  const main = document.querySelector('main');
+  if (main) body.removeChild(main);
+}
+
+
+// When any tab button is pressed, clear MAIN element, then append respective child elements
+
+
+// On page load, display home page content and select home page tab
+// When another tab is clicked, clear <main> element before adding content for that page
 

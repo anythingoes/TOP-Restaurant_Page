@@ -4,7 +4,9 @@ module.exports = {
   entry: {
     index: './src/index.js',
     home: './src/home.js',
-    about: './about.js',
+    about: './src/about.js',
+    header: './src/header.js',
+    menu: './src/menu.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -15,6 +17,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },

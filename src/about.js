@@ -35,7 +35,9 @@ function contactUs() {
   section.append(heading, address);
 
   // STYLES
+  section.classList.add('address');
   heading.classList.add('sub-heading');
+  // address.classList.add('address');
 
   // CONTENT
   heading.textContent = 'Contact';

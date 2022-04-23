@@ -1,12 +1,4 @@
-"use strict";
-
-function aboutPage() {
-  const content = document.createElement('main');
-  content.appendChild(aboutUs());
-  content.appendChild(contactUs());
-
-  return content;
-}
+// 'use strict';
 
 function aboutUs() {
   const section = document.createElement('section');
@@ -20,12 +12,10 @@ function aboutUs() {
 
   // CONTENT
   heading.textContent = 'About Us';
-  para.textContent = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos cum incidunt nulla odio eveniet repellat delectus iusto quibusdam dolore minus, porro illo optio ab inventore dolorem, at sit, officia placeat! Saepe autem, quaerat commodi beatae nesciunt libero at officia, aliquid ab, laborum possimus.Reiciendis dolorem aspernatur eius reprehenderit natus aut vitae rem in asperiores enim placeat, nam sequi magnam non.'
-
+  para.textContent = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos cum incidunt nulla odio eveniet repellat delectus iusto quibusdam dolore minus, porro illo optio ab inventore dolorem, at sit, officia placeat! Saepe autem, quaerat commodi beatae nesciunt libero at officia, aliquid ab, laborum possimus.Reiciendis dolorem aspernatur eius reprehenderit natus aut vitae rem in asperiores enim placeat, nam sequi magnam non.';
 
   return section;
 }
-
 
 function contactUs() {
   const section = document.createElement('section');
@@ -50,4 +40,10 @@ function contactUs() {
   return section;
 }
 
-export { aboutPage };
+export default function aboutPage() {
+  const content = document.createElement('main');
+  content.appendChild(aboutUs());
+  content.appendChild(contactUs());
+
+  return content;
+}

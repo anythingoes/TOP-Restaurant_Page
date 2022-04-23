@@ -1,6 +1,4 @@
-"use strict";
-
-function header() {
+export default function header() {
   const headerEl = document.createElement('header');
   const mainHeading = document.createElement('h1');
   const nav = document.createElement('nav');
@@ -9,7 +7,7 @@ function header() {
 
   mainHeading.textContent = "Peco's Restaurant";
 
-  for (let i = 0; i < tabs.length; i++) {
+  for (let i = 0; i < tabs.length; i += 1) {
     const listItem = document.createElement('li');
     const link = document.createElement('a');
     link.textContent = tabs[i];
@@ -26,5 +24,3 @@ function header() {
 
   return headerEl;
 }
-
-export { header };

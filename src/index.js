@@ -1,13 +1,13 @@
-import header from './header';
-import home from './home';
-import aboutPage from './about';
-import menuPage from './menu';
-import './style.css';
+import header from "./header";
+import home from "./home";
+import aboutPage from "./about";
+import menuPage from "./menu";
+import "./style.css";
 
 const { body } = document;
 
 function clearMainContent() {
-  const main = document.querySelector('main');
+  const main = document.querySelector("main");
   if (main) body.removeChild(main);
 }
 
@@ -17,10 +17,10 @@ function changeTabContent(e) {
   const clickedTab = e.target.textContent;
 
   switch (clickedTab) {
-    case 'Menu':
+    case "Menu":
       body.append(menuPage());
       break;
-    case 'About':
+    case "About":
       body.append(aboutPage());
       break;
     default:
@@ -35,9 +35,9 @@ body.appendChild(header());
 body.appendChild(home());
 
 // NAV menu eventListener;
-const linkList = document.querySelectorAll('li');
+const linkList = document.querySelectorAll("li");
 linkList.forEach((tab) => {
-  tab.addEventListener('click', changeTabContent);
+  tab.addEventListener("click", changeTabContent);
 });
 
 // When any tab button is pressed, clear MAIN element, then append respective child elements
